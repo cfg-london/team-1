@@ -21,13 +21,19 @@ Install Flask
 
 Create folder for project
 
-```mkdir em2030
-cd em2030```
+```
+mkdir em2030
+cd em2030
+```
 
 Clone project
 
-```git clone https://github.com/cfg-london/team-1.git```
+```
+git clone https://github.com/cfg-london/team-1.git
+```
 
 Run server 
 
-```flask run```
+```
+flask run
+```
