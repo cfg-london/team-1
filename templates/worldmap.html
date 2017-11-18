@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="css/world.css" rel="stylesheet">
+
+    <!--Custom map-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="js/datamaps.world.min.js"></script>
+
 </head>
 <body>
+<div class="aspectwrapper">
+    <div class="content">
+        <div id="map" style="position: relative; width: 100%; height: 100%"></div>
+        <script>
+            var selected = [];
+            var map = new Datamap({
+                element: document.getElementById("map"),
+                projection: 'mercator',
+                fills: {
+                    defaultFill: "#707076",
+                    authorHasTraveledTo: "#fa0fa0"
+                },
+                done: function(datamap) {
+                    datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+                        var country = geography.properties.name;
+                        if(selected.includes(country)){
+                            var index = selected.indexOf(country);
+                            if (index > -1) {
+                                selected.splice(index, 1);
+                            }
+                        } else {
+                            selected.push(country);
 
+                        }
+
+                        console.log(selected);
+                    });
+                }
+            });
+        </script>
+    </div>
+</div>
 </body>
 </html>
