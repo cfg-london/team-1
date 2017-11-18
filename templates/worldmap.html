@@ -23,27 +23,27 @@
     <div class="content">
         <div id="map" style="position: relative; width: 100%; height: 100%"></div>
         <script type=text/javascript>
-            $(function() {
-                $('a#calculate').bind('click', function() {
-                    $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
-                        a: $('input[name="a"]').val(),
-                        b: $('input[name="b"]').val()
-                    }, function(data) {
-                        $("#result").text(data.result);
-                    });
-                    return false;
+            function getCountryDetails(country) {
+                var result;
+                $.ajax({
+                    async:false,
+                    type: "GET",
+                    url: $SCRIPT_ROOT + '/getData',
+                    data: {
+                        "country": country
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data){
+                        result = data;
+                    }
                 });
-            });
 
-            function getCountryDetails(name) {
-                $.getJSON("abc" + '/_add_numbers', {
-                    a: $('input[name="city"]').val()
-                }, function(data) {
-                    $("#result").text(data.result)})}
+                return result;
+            }
         </script>
 
         <script>
-            getCountryDetails("asdasd");
             var selected = [];
             var map = new Datamap({
                 element: document.getElementById("map"),
@@ -56,8 +56,6 @@
                 },
                 done: function(datamap) {
                     datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-
-
 
                         var countryId = geography.id;
                         console.log(countryId);
