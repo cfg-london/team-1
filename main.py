@@ -9,3 +9,7 @@ def hello_world():
 @app.route('/map')
 def render_map():
 	return render_template('worldmap.html')
+
+@app.route('/map-temp')
+def render_map_temp():
+	return render_template('worldMapPage.html')
