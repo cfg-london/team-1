@@ -10,10 +10,6 @@ class Survey:
                 self.indicators[n] = {}
 
     def __init__(self, names, categories):
-        # print(names)
-        # print(categories)
-        # print(len(names))
-        # print(len(categories))
 
         self.indicators = {}
         for n in names:
