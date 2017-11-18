@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>World map</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='styles/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{{ url_for('static',filename='styles/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="css/freelancer.css" rel="stylesheet"> -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/worldMapPage.css') }}">
+
+    <!--Custom map-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="js/datamaps.world.min.js"></script>
+
+
+
+<body id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">World Map</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#page-down">Statistics</a>
+                </li>
+                <!--<li class="nav-item">-->
+                <!--&lt;!&ndash;<a class="nav-link js-scroll-trigger" href="#portfolio">Statistics</a>&ndash;&gt;-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link js-scroll-trigger" href="#portfolio">Gallery</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link js-scroll-trigger" href="#about">About</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<link rel="import" href="worldmap.html">
+
+
+<link href="{{ url_for('static',filename='styles/world.css') }}" rel="stylesheet">
+
+<!--Custom map-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="{{ url_for('static',filename='js/datamaps.world.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/RadarChart.js') }}"></script>
+<script type=text/javascript src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
+<style>
+    #chart {
+        position: relative;
+        top: 4.5em;
+        left: 22em;}
+</style>
+
+<body>
+<div class="aspectwrapper">
+    <div class="content">
+        <div id="map" style="position: relative; width: 100%; height: 100%"></div>
+        <script type=text/javascript>
+            $(function() {
+                $('a#calculate').bind('click', function() {
+                    $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
+                        a: $('input[name="a"]').val(),
+                        b: $('input[name="b"]').val()
+                    }, function(data) {
+                        $("#result").text(data.result);
+                    });
+                    return false;
+                });
+            });
+
+            function getCountryDetails(name) {
+                $.getJSON("abc" + '/_add_numbers', {
+                    a: $('input[name="city"]').val()
+                }, function(data) {
+                    $("#result").text(data.result)})}
+        </script>
+
+        <script>
+            getCountryDetails("asdasd");
+            var selected = [];
+            var map = new Datamap({
+                element: document.getElementById("map"),
+                projection: 'mercator',
+                fills: {
+                    defaultFill: "#707076"
+                },
+                geographyConfig: {
+                    highlightOnHover: false
+                },
+                done: function(datamap) {
+                    datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+                        var countryId = geography.id;
+                        console.log(countryId);
+                        var countryName = geography.properties.name;
+                        if(selected.includes(countryName)){
+                            var index = selected.indexOf(countryName);
+                            if (index > -1) {
+                                selected.splice(index, 1);
+                                var data = {};
+                                data[countryId] = "#707076";
+                                map.updateChoropleth(data);
+                            }
+                        } else {
+                            selected.push(countryName);
+                            var data = {};
+                            data[countryId] = "green";
+                            map.updateChoropleth(data);
+                        }
+
+                    });
+                }
+            });
+        </script>
+    </div>
+</div>
+<div id="body">
+    <div id="chart"></div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static',filename='js/script.js') }}"></script>
+<section id = "chartt">
+    <!DOCTYPE html>
+    <meta charset="utf-8">
+    <style>
+
+        body {
+            font: 10px sans-serif;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .x.axis path {
+            display: none;
+        }
+
+    </style>
+    <body>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script>
+
+        var margin = {top: 20, right: 20, bottom: 30, left: 40},
+            width = 960 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+        var x0 = d3.scale.ordinal()
+            .rangeRoundBands([0, width], .1);
+
+        var x1 = d3.scale.ordinal();
+
+        var y = d3.scale.linear()
+            .range([height, 0]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x0)
+            .tickSize(0)
+            .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
+
+        var color = d3.scale.ordinal()
+            .range(["#ca0020","#f4a582","#d5d5d5","#92c5de","#0571b0"]);
+
+        var svg = d3.select('body').append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.json("{{ url_for('static',filename='data.json') }}", function(error, data) {
+
+            var categoriesNames = data.map(function(d) { return d.categorie; });
+            var rateNames = data[0].values.map(function(d) { return d.rate; });
+
+            x0.domain(categoriesNames);
+            x1.domain(rateNames).rangeRoundBands([0, x0.rangeBand()]);
+            y.domain([0, d3.max(data, function(categorie) { return d3.max(categorie.values, function(d) { return d.value; }); })]);
+
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("class", "y axis")
+                .style('opacity','0')
+                .call(yAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end")
+                .style('font-weight','bold')
+                .text("Value");
+
+            svg.select('.y').transition().duration(500).delay(1300).style('opacity','1');
+
+            var slice = svg.selectAll(".slice")
+                .data(data)
+                .enter().append("g")
+                .attr("class", "g")
+                .attr("transform",function(d) { return "translate(" + x0(d.categorie) + ",0)"; });
+
+            slice.selectAll("rect")
+                .data(function(d) { return d.values; })
+                .enter().append("rect")
+                .attr("width", x1.rangeBand())
+                .attr("x", function(d) { return x1(d.rate); })
+                .style("fill", function(d) { return color(d.rate) })
+                .attr("y", function(d) { return y(0); })
+                .attr("height", function(d) { return height - y(0); })
+                .on("mouseover", function(d) {
+                    d3.select(this).style("fill", d3.rgb(color(d.rate)).darker(2));
+
+                })
+                .on("mouseout", function(d) {
+                    d3.select(this).style("fill", color(d.rate));
+                });
+
+            slice.selectAll("rect")
+                .transition()
+                .delay(function (d) {return Math.random()*1000;})
+                .duration(1000)
+                .attr("y", function(d) { return y(d.value); })
+                .attr("height", function(d) { return height - y(d.value); });
+
+            //Legend
+            var legend = svg.selectAll(".legend")
+                .data(data[0].values.map(function(d) { return d.rate; }).reverse())
+                .enter().append("g")
+                .attr("class", "legend")
+                .attr("transform", function(d,i) { return "translate(0," + i * 20 + ")"; })
+                .style("opacity","0");
+
+            legend.append("rect")
+                .attr("x", width - 18)
+                .attr("width", 18)
+                .attr("height", 18)
+                .style("fill", function(d) { return color(d); });
+
+            legend.append("text")
+                .attr("x", width - 24)
+                .attr("y", 9)
+                .attr("dy", ".35em")
+                .style("text-anchor", "end")
+                .text(function(d) {return d; });
+
+            legend.transition().duration(500).delay(function(d,i){ return 1300 + 100 * i; }).style("opacity","1");
+
+        });
+
+    </script>
+</section>
+</body>
+
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-4">
+                </div>
+                <div class="footer-col col-md-4">
+                    <h3>Follow us!</h3>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a class="btn-social btn-outline" href="https://www.facebook.com/Equal2030/"rel="noopener noreferrer" target="_blank">
+                                <i class="fa fa-fw fa-facebook"></i>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <a class="btn-social btn-outline" href="https://twitter.com/Equal2030" rel="noopener noreferrer" target="_blank">
+                                <i class="fa fa-fw fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-social btn-outline" href="https://www.linkedin.com/company-beta/13445896"rel="noopener noreferrer" target="_blank">
+                                <i class="fa fa-fw fa-linkedin"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top d-lg-none">
+    <a class="btn btn-primary js-scroll-trigger" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{{ url_for('static',filename='js/jquery.easing.min.js') }}"></script>
+
+<!-- Contact Form JavaScript -->
+<script src="{{ url_for('static',filename='js/jqBootstrapValidation.js') }}"></script>
+<script src="js/contact_me.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="{{ url_for('static',filename='js/freelancer.min.js') }}"></script>
+
+</body>
+
+</html>

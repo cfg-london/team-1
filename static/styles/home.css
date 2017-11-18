@@ -163,7 +163,8 @@ header.masthead {
   padding-bottom: 50px;
   text-align: center;
   color: white;
-  background: #55BAB2; }
+  background-image: url('../img/portfolio/7.jpg');
+}
   header.masthead img {
     display: block;
     margin: 0 auto 20px; }

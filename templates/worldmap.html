@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static',filename='styles/world.css') }}" rel="stylesheet">
+
+    <!--Custom map-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="{{ url_for('static',filename='js/datamaps.world.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/RadarChart.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
+    <style>
+        #chart {
+            position: relative;
+            top: 4.5em;
+            left: 22em;}
+    </style>
+</head>
+<body>
+<div class="aspectwrapper">
+    <div class="content">
+        <div id="map" style="position: relative; width: 100%; height: 100%"></div>
+        <script type=text/javascript>
+            function getCountryDetails(country) {
+                var result;
+                $.ajax({
+                    async:false,
+                    type: "GET",
+                    url: $SCRIPT_ROOT + '/getData',
+                    data: {
+                        "country": country
+                    },
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data){
+                        result = data;
+                    }
+                });
+
+                return result;
+            }
+        </script>
+
+        <script>
+            var selected = [];
+            var map = new Datamap({
+                element: document.getElementById("map"),
+                projection: 'mercator',
+                fills: {
+                    defaultFill: "#707076"
+                },
+                geographyConfig: {
+                    highlightOnHover: false
+                },
+                done: function(datamap) {
+                    datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+
+                        var countryId = geography.id;
+                        console.log(countryId);
+                        var countryName = geography.properties.name;
+                        if(selected.includes(countryName)){
+                            var index = selected.indexOf(countryName);
+                            if (index > -1) {
+                                selected.splice(index, 1);
+                                var data = {};
+                                data[countryId] = "#707076";
+                                map.updateChoropleth(data);
+                            }
+                        } else {
+                            selected.push(countryName);
+                            var data = {};
+                            data[countryId] = "green";
+                            map.updateChoropleth(data);
+                        }
+
+                    });
+                }
+            });
+        </script>
+    </div>
+</div>
+<div id="body">
+    <div id="chart"></div>
+</div>
+
+<script type="text/javascript" src="{{ url_for('static',filename='js/script.js') }}"></script>
+</body>
+</html>
