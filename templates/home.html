@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>Equal measures 2030</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static',filename='styles/bootstrap.min.css') }}" rel="stylesheet">
@@ -37,7 +37,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Equal measures 2030</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -45,7 +45,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link js-scroll-trigger" href="#page-top">Home</a>
+            </li>
+            <li class="nav-item">
+              <!--<a class="nav-link js-scroll-trigger" href="#portfolio">Statistics</a>-->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Gallery</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
@@ -61,11 +67,18 @@
     <!-- Header -->
     <header class="masthead">
       <div class="container">
-        <img class="img-fluid" src="{{ url_for('static',filename='img/profile.png') }}" alt="">
+        <!--<img class="img-fluid" src="{{ url_for('static',filename='img/profile.png') }}" alt="">-->
         <div class="intro-text">
-          <span class="name">Start Bootstrap</span>
-          <hr class="star-light">
-          <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+          <!--<span class="name">Start Bootstrap</span>-->
+          <!--<hr class="star-light">-->
+          <!--<span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>-->
+        </div>
+        <div class="col-lg-8 mx-auto text-center">
+          <a href="#" class="btn btn-lg btn-outline">
+
+            Get Statistics
+          </a>
+        </div>
         </div>
       </div>
     </header>
@@ -73,8 +86,8 @@
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
       <div class="container">
-        <h2 class="text-center">Portfolio</h2>
-        <hr class="star-primary">
+        <h2 class="text-center">Gallery</h2><br />
+        <!--<hr class="star-primary">-->
         <div class="row">
           <div class="col-sm-4 portfolio-item">
             <a class="portfolio-link" href="#portfolioModal1" data-toggle="modal">
@@ -83,7 +96,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/cabin.png') }}" alt="">
+              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/1.jpg') }}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -93,7 +106,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/cake.png') }}" alt="">
+              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/2.jpg') }}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -103,7 +116,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/circus.png') }}" alt="">
+              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/3.JPG') }}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -113,7 +126,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/game.png') }}" alt="">
+              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/4.jpg') }}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -123,7 +136,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/safe.png') }}" alt="">
+              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/5.jpg') }}" alt="">
             </a>
           </div>
           <div class="col-sm-4 portfolio-item">
@@ -133,7 +146,7 @@
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/submarine.png') }}" alt="">
+              <img class="img-fluid" src="{{ url_for('static',filename='img/portfolio/6.jpg') }}" alt="">
             </a>
           </div>
         </div>
@@ -143,30 +156,25 @@
     <!-- About Section -->
     <section class="success" id="about">
       <div class="container">
-        <h2 class="text-center">About</h2>
-        <hr class="star-light">
+        <h2 class="text-center">OUR APPROACH </h2><br />
+        <!--<hr class="star-light">-->
         <div class="row">
-          <div class="col-lg-4 ml-auto">
-            <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-          </div>
-          <div class="col-lg-4 mr-auto">
-            <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-          </div>
-          <div class="col-lg-8 mx-auto text-center">
-            <a href="#" class="btn btn-lg btn-outline">
-              <i class="fa fa-download"></i>
-              Download Theme
-            </a>
+          <div class="col-lg-10 ml-auto">
+            <p>Millions of girls and women are currently ‘invisible,’ preventing them from fully participating in their communities.
+              Equal Measures 2030 envisions a world where no girl or woman is invisible. We connect data and evidence with advocacy and action, helping to fuel progress towards gender equality.
+              That means making sure girls’ and women’s movements, rights advocates and decision makers have easy-to-use data and evidence to guide efforts to reach the Global Goals by 2030.</p>
           </div>
         </div>
+
+      </div>
       </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
       <div class="container">
-        <h2 class="text-center">Contact Me</h2>
-        <hr class="star-primary">
+        <h2 class="text-center">Get Involved</h2>
+        <!--<hr class="star-primary">-->
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
@@ -217,53 +225,28 @@
         <div class="container">
           <div class="row">
             <div class="footer-col col-md-4">
-              <h3>Location</h3>
-              <p>3481 Melrose Place
-                <br>Beverly Hills, CA 90210</p>
             </div>
             <div class="footer-col col-md-4">
-              <h3>Around the Web</h3>
+              <h3>Follow us!</h3>
               <ul class="list-inline">
                 <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
+                  <a class="btn-social btn-outline" href="https://www.facebook.com/Equal2030/"rel="noopener noreferrer" target="_blank">
                     <i class="fa fa-fw fa-facebook"></i>
                   </a>
                 </li>
+
                 <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
-                    <i class="fa fa-fw fa-google-plus"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
+                  <a class="btn-social btn-outline" href="https://twitter.com/Equal2030" rel="noopener noreferrer" target="_blank">
                     <i class="fa fa-fw fa-twitter"></i>
                   </a>
                 </li>
                 <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
+                  <a class="btn-social btn-outline" href="https://www.linkedin.com/company-beta/13445896"rel="noopener noreferrer" target="_blank">
                     <i class="fa fa-fw fa-linkedin"></i>
                   </a>
                 </li>
-                <li class="list-inline-item">
-                  <a class="btn-social btn-outline" href="#">
-                    <i class="fa fa-fw fa-dribbble"></i>
-                  </a>
-                </li>
+
               </ul>
-            </div>
-            <div class="footer-col col-md-4">
-              <h3>About Freelancer</h3>
-              <p>Freelance is a free to use, open source Bootstrap theme created by
-                <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-below">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              Copyright &copy; Your Website 2017
             </div>
           </div>
         </div>
@@ -290,28 +273,10 @@
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                  <h2>Project Title</h2>
-                  <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/cabin.png') }}" alt="">
-                  <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-                    <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                  <ul class="list-inline item-details">
-                    <li>Client:
-                      <strong>
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
-                      </strong>
-                    </li>
-                    <li>Date:
-                      <strong>
-                        <a href="http://startbootstrap.com">April 2014</a>
-                      </strong>
-                    </li>
-                    <li>Service:
-                      <strong>
-                        <a href="http://startbootstrap.com">Web Development</a>
-                      </strong>
-                    </li>
-                  </ul>
+                  <h2></h2>
+                  <!--<hr class="star-primary">-->
+                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/1.jpg') }}" alt="">
+                  <p>Ghana</p>
                   <button class="btn btn-success" type="button" data-dismiss="modal">
                     <i class="fa fa-times"></i>
                     Close</button>
@@ -334,28 +299,10 @@
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                  <h2>Project Title</h2>
-                  <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/cake.png') }}" alt="">
-                  <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-                    <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                  <ul class="list-inline item-details">
-                    <li>Client:
-                      <strong>
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
-                      </strong>
-                    </li>
-                    <li>Date:
-                      <strong>
-                        <a href="http://startbootstrap.com">April 2014</a>
-                      </strong>
-                    </li>
-                    <li>Service:
-                      <strong>
-                        <a href="http://startbootstrap.com">Web Development</a>
-                      </strong>
-                    </li>
-                  </ul>
+                  <h2></h2>
+                  <!--<hr class="star-primary">-->
+                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/2.jpg') }}" alt="">
+                  <p>Uganda</p>
                   <button class="btn btn-success" type="button" data-dismiss="modal">
                     <i class="fa fa-times"></i>
                     Close</button>
@@ -378,28 +325,10 @@
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                  <h2>Project Title</h2>
-                  <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/circus.png') }}" alt="">
-                  <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-                    <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                  <ul class="list-inline item-details">
-                    <li>Client:
-                      <strong>
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
-                      </strong>
-                    </li>
-                    <li>Date:
-                      <strong>
-                        <a href="http://startbootstrap.com">April 2014</a>
-                      </strong>
-                    </li>
-                    <li>Service:
-                      <strong>
-                        <a href="http://startbootstrap.com">Web Development</a>
-                      </strong>
-                    </li>
-                  </ul>
+                  <h2></h2>
+                  <!--<hr class="star-primary">-->
+                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/3.JPG') }}" alt="">
+                  <p>Senegal</p>
                   <button class="btn btn-success" type="button" data-dismiss="modal">
                     <i class="fa fa-times"></i>
                     Close</button>
@@ -422,28 +351,10 @@
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                  <h2>Project Title</h2>
-                  <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/game.png') }}" alt="">
-                  <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-                    <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                  <ul class="list-inline item-details">
-                    <li>Client:
-                      <strong>
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
-                      </strong>
-                    </li>
-                    <li>Date:
-                      <strong>
-                        <a href="http://startbootstrap.com">April 2014</a>
-                      </strong>
-                    </li>
-                    <li>Service:
-                      <strong>
-                        <a href="http://startbootstrap.com">Web Development</a>
-                      </strong>
-                    </li>
-                  </ul>
+                  <h2></h2>
+                  <!--<hr class="star-primary">-->
+                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/4.jpg') }}" alt="">
+                  <p>India</p>
                   <button class="btn btn-success" type="button" data-dismiss="modal">
                     <i class="fa fa-times"></i>
                     Close</button>
@@ -466,28 +377,10 @@
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                  <h2>Project Title</h2>
-                  <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/safe.png') }}" alt="">
-                  <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-                    <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                  <ul class="list-inline item-details">
-                    <li>Client:
-                      <strong>
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
-                      </strong>
-                    </li>
-                    <li>Date:
-                      <strong>
-                        <a href="http://startbootstrap.com">April 2014</a>
-                      </strong>
-                    </li>
-                    <li>Service:
-                      <strong>
-                        <a href="http://startbootstrap.com">Web Development</a>
-                      </strong>
-                    </li>
-                  </ul>
+                  <h2></h2>
+                  <!--<hr class="star-primary">-->
+                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/5.jpg') }}" alt="">
+                  <p>South Africa</p>
                   <button class="btn btn-success" type="button" data-dismiss="modal">
                     <i class="fa fa-times"></i>
                     Close</button>
@@ -510,28 +403,10 @@
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                  <h2>Project Title</h2>
-                  <hr class="star-primary">
-                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/submarine.png') }}" alt="">
-                  <p>Use this area of the page to describe your project. The icon above is part of a free icon set by
-                    <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                  <ul class="list-inline item-details">
-                    <li>Client:
-                      <strong>
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
-                      </strong>
-                    </li>
-                    <li>Date:
-                      <strong>
-                        <a href="http://startbootstrap.com">April 2014</a>
-                      </strong>
-                    </li>
-                    <li>Service:
-                      <strong>
-                        <a href="http://startbootstrap.com">Web Development</a>
-                      </strong>
-                    </li>
-                  </ul>
+                  <h2></h2>
+                  <!--<hr class="star-primary">-->
+                  <img class="img-fluid img-centered" src="{{ url_for('static',filename='img/portfolio/6.jpg') }}" alt="">
+                  <p>Kenya</p>
                   <button class="btn btn-success" type="button" data-dismiss="modal">
                     <i class="fa fa-times"></i>
                     Close</button>
