@@ -144,6 +144,7 @@
       <div class="content">
         <div id="map" style="position: relative; width: 100%; height: 100%"></div>
         <script>
+            var selected = [];
             var map = new Datamap({
                 element: document.getElementById("map"),
                 projection: 'mercator',
@@ -153,7 +154,7 @@
                 },
                 done: function(datamap) {
                     datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-                        alert(geography.properties.name);
+                        selected=
                     });
                 }
             });
